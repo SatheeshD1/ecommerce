@@ -39,4 +39,6 @@ public interface EcommerceService {
 
 	void upsertSiteInfo(SiteInformation siteInformation);
 
+	void uploadProductCsv(String fileUrl);
+
 }

@@ -99,4 +99,9 @@ public class EcommerceServiceImpl implements EcommerceService {
 	public void upsertSiteInfo(SiteInformation siteInformation) {
 		ecommerceDao.upsertSiteInfo(siteInformation);
 	}
+
+	@Override
+	public void uploadProductCsv(String fileUrl) {
+		ecommerceDao.uploadProductCsv(fileUrl);
+	}
 }

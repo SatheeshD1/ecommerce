@@ -110,4 +110,13 @@ public class EcommerceDaoImpl implements EcommerceDao{
 		Session currentSession = entityManager.unwrap(Session.class);
 		currentSession.saveOrUpdate(siteInformation);
 	}
+
+	@Override
+	@Transactional
+	public void uploadProductCsv(String fileUrl) {	
+		Session currentSession = entityManager.unwrap(Session.class);
+		Query query = currentSession.createNativeQuery("LOAD DATA INFILE :fileUrl INTO TABLE PRODUCT_MASTER FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n'IGNORE 1 ROWS");
+		query.setParameter("fileUrl","F:/SatheeshD/e-commerce_detail/testdata/product_master.csv");
+		query.executeUpdate();
+	}
 }

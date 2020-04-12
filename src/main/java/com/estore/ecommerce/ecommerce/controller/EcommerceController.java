@@ -3,6 +3,7 @@ package com.estore.ecommerce.ecommerce.controller;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -118,6 +119,13 @@ public class EcommerceController {
 	public void upsertSiteInfo(@RequestBody SiteInformation siteInformation) {
 		if(Objects.nonNull(siteInformation)){
 			ecommerceService.upsertSiteInfo(siteInformation);
+		}
+	}
+	
+	@PostMapping("/uploadProductCsv")
+	public void uploadProductCsv(@RequestBody String fileUrl) {
+		if(StringUtils.isNotEmpty(fileUrl)){
+			ecommerceService.uploadProductCsv(fileUrl);
 		}
 	}
 }

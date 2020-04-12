@@ -39,4 +39,6 @@ public interface EcommerceDao {
 
 	void upsertSiteInfo(SiteInformation siteInformation);
 
+	void uploadProductCsv(String fileUrl);
+
 }
