@@ -1,9 +1,12 @@
 package com.estore.ecommerce.ecommerce.dao;
 
+import java.util.List;
+
 import com.estore.ecommerce.ecommerce.entity.CardInformation;
 import com.estore.ecommerce.ecommerce.entity.CartList;
 import com.estore.ecommerce.ecommerce.entity.DeliveryAddress;
 import com.estore.ecommerce.ecommerce.entity.HelpSupport;
+import com.estore.ecommerce.ecommerce.entity.ProductCategory;
 import com.estore.ecommerce.ecommerce.entity.ProductMaster;
 import com.estore.ecommerce.ecommerce.entity.PurchaseTransaction;
 import com.estore.ecommerce.ecommerce.entity.Ratings;
@@ -40,5 +43,7 @@ public interface EcommerceDao {
 	void upsertSiteInfo(SiteInformation siteInformation);
 
 	void uploadProductCsv(String fileUrl);
+
+	List<ProductCategory> getCategoryList();
 
 }

@@ -1,6 +1,7 @@
 package com.estore.ecommerce.ecommerce.service;
 
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import com.estore.ecommerce.ecommerce.entity.CardInformation;
 import com.estore.ecommerce.ecommerce.entity.CartList;
 import com.estore.ecommerce.ecommerce.entity.DeliveryAddress;
 import com.estore.ecommerce.ecommerce.entity.HelpSupport;
+import com.estore.ecommerce.ecommerce.entity.ProductCategory;
 import com.estore.ecommerce.ecommerce.entity.ProductMaster;
 import com.estore.ecommerce.ecommerce.entity.PurchaseTransaction;
 import com.estore.ecommerce.ecommerce.entity.Ratings;
@@ -103,5 +105,10 @@ public class EcommerceServiceImpl implements EcommerceService {
 	@Override
 	public void uploadProductCsv(String fileUrl) {
 		ecommerceDao.uploadProductCsv(fileUrl);
+	}
+	
+	@Override
+	public List<ProductCategory> getCategoryList() {
+		return ecommerceDao.getCategoryList();
 	}
 }

@@ -8,14 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.estore.ecommerce.ecommerce.dao.EcommerceDao;
 import com.estore.ecommerce.ecommerce.entity.CardInformation;
 import com.estore.ecommerce.ecommerce.entity.CartList;
 import com.estore.ecommerce.ecommerce.entity.DeliveryAddress;
 import com.estore.ecommerce.ecommerce.entity.HelpSupport;
+import com.estore.ecommerce.ecommerce.entity.ProductCategory;
 import com.estore.ecommerce.ecommerce.entity.ProductMaster;
 import com.estore.ecommerce.ecommerce.entity.PurchaseTransaction;
 import com.estore.ecommerce.ecommerce.entity.Ratings;
@@ -26,6 +27,7 @@ import com.estore.ecommerce.ecommerce.service.EcommerceService;
 
 
 @RestController
+@RequestMapping("ecommerce/")
 public class EcommerceController {
 	
 	private EcommerceService ecommerceService ;
@@ -127,5 +129,10 @@ public class EcommerceController {
 		if(StringUtils.isNotEmpty(fileUrl)){
 			ecommerceService.uploadProductCsv(fileUrl);
 		}
+	}
+	
+	@GetMapping("/getCategoryList")
+	public List<ProductCategory> getCategoryList() {
+		return ecommerceService.getCategoryList();
 	}
 }

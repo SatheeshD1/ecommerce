@@ -1,5 +1,7 @@
 package com.estore.ecommerce.ecommerce.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
@@ -12,6 +14,7 @@ import com.estore.ecommerce.ecommerce.entity.CardInformation;
 import com.estore.ecommerce.ecommerce.entity.CartList;
 import com.estore.ecommerce.ecommerce.entity.DeliveryAddress;
 import com.estore.ecommerce.ecommerce.entity.HelpSupport;
+import com.estore.ecommerce.ecommerce.entity.ProductCategory;
 import com.estore.ecommerce.ecommerce.entity.ProductMaster;
 import com.estore.ecommerce.ecommerce.entity.PurchaseTransaction;
 import com.estore.ecommerce.ecommerce.entity.Ratings;
@@ -118,5 +121,11 @@ public class EcommerceDaoImpl implements EcommerceDao{
 		Query query = currentSession.createNativeQuery("LOAD DATA INFILE :fileUrl INTO TABLE PRODUCT_MASTER FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n'IGNORE 1 ROWS");
 		query.setParameter("fileUrl","F:/SatheeshD/e-commerce_detail/testdata/product_master.csv");
 		query.executeUpdate();
+	}
+	
+	@Override
+	public List<ProductCategory> getCategoryList() {
+		Session currentSession = entityManager.unwrap(Session.class);
+		return currentSession.createCriteria(ProductCategory.class).list();
 	}
 }
