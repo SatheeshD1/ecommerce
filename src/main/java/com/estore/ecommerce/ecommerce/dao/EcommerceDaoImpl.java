@@ -14,6 +14,7 @@ import com.estore.ecommerce.ecommerce.entity.CardInformation;
 import com.estore.ecommerce.ecommerce.entity.CartList;
 import com.estore.ecommerce.ecommerce.entity.DeliveryAddress;
 import com.estore.ecommerce.ecommerce.entity.HelpSupport;
+import com.estore.ecommerce.ecommerce.entity.ManufacturerInfo;
 import com.estore.ecommerce.ecommerce.entity.ProductCategory;
 import com.estore.ecommerce.ecommerce.entity.ProductMaster;
 import com.estore.ecommerce.ecommerce.entity.PurchaseTransaction;
@@ -127,5 +128,11 @@ public class EcommerceDaoImpl implements EcommerceDao{
 	public List<ProductCategory> getCategoryList() {
 		Session currentSession = entityManager.unwrap(Session.class);
 		return currentSession.createCriteria(ProductCategory.class).list();
+	}
+
+	@Override
+	public List<ManufacturerInfo> getManufacturerList() {
+		Session currentSession = entityManager.unwrap(Session.class);
+		return currentSession.createCriteria(ManufacturerInfo.class).list();
 	}
 }

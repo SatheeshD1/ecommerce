@@ -6,6 +6,7 @@ import com.estore.ecommerce.ecommerce.entity.CardInformation;
 import com.estore.ecommerce.ecommerce.entity.CartList;
 import com.estore.ecommerce.ecommerce.entity.DeliveryAddress;
 import com.estore.ecommerce.ecommerce.entity.HelpSupport;
+import com.estore.ecommerce.ecommerce.entity.ManufacturerInfo;
 import com.estore.ecommerce.ecommerce.entity.ProductCategory;
 import com.estore.ecommerce.ecommerce.entity.ProductMaster;
 import com.estore.ecommerce.ecommerce.entity.PurchaseTransaction;
@@ -45,5 +46,7 @@ public interface EcommerceDao {
 	void uploadProductCsv(String fileUrl);
 
 	List<ProductCategory> getCategoryList();
+
+	List<ManufacturerInfo> getManufacturerList();
 
 }
